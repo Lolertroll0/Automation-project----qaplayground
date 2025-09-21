@@ -6,7 +6,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class DriverFactory {
-    private WebDriver driver;
+    private static WebDriver driver;
 
     public WebDriver getDriver(WebDriver driver) {
         if (driver != null) {
@@ -17,7 +17,7 @@ public class DriverFactory {
             return this.driver;
         }
     }
-    public WebDriver driverSetup() {
+    public static WebDriver setup() {
         ChromeOptions options = new ChromeOptions();
         
         options.addArguments("--no-sandbox");
