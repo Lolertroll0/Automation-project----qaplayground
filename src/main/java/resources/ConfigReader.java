@@ -1,4 +1,4 @@
-package com.automation.resources;
+package resources;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -12,7 +12,7 @@ public class ConfigReader {
         properties = new Properties();
         try {
             // Ajusta la ruta si es necesario
-            FileInputStream fis = new FileInputStream("src/test/java/config/config.properties");
+            FileInputStream fis = new FileInputStream("src/main/java/resources/config/config.properties");
             properties.load(fis);
             fis.close();
         } catch (IOException e) {
