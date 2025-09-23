@@ -14,4 +14,7 @@ public class HomePage extends BaseTest{
 
     private By webTitle = By.xpath("/html/body/nav/div[1]");
 
+    public String getTitle () {
+        return findElement(webTitle).getText();
+    }
 }
