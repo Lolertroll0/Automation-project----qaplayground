@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<test name="Login Tests">
-        <classes>
-            <class name="test.HomeTest"/>
-        </classes>
-</test>
+
+<suite name="Regression" verbose="1">
+    <test name="standart"> 
+            <classes>
+                <class name="test.SignUpTest"/>
+                <class name= "test.HomeTest"/>
+            </classes>
+    </test>
+<suite/>
+
+<suite name="Smoke" verbose="2">
+    <test name="standart"> 
+            <classes>
+                <class name="test.SignUpTest"/>               
+            </classes>
+    </test>
+<suite/>

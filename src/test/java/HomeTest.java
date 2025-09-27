@@ -1,3 +1,4 @@
+import static resources.enums.BrowserType.*;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -9,28 +10,29 @@ import com.automation.Pages.HomePage;
 
 import resources.ConfigReader;
 import resources.DriverFactory;
-import static resources.enums.BrowserType.*;
 
 public class HomeTest {
     private WebDriver driver;
     private ConfigReader config;
-    private HomePage search;
+    private HomePage homePage;
     
+    
+
     @BeforeTest
     public void setUp() {
 
         // Actuators initialization
         config = new ConfigReader();
-        driver = DriverFactory.getDriver(FIREFOX);
-        search = new HomePage(driver);
+        driver = DriverFactory.getDriver(CHROME);
+        homePage = new HomePage(driver);
 
         // Navigate to the URL from config
-        driver.get(config.getProperty("baseURL"));
+        driver.get(config.getProperty("homeurl"));
     }    
     @Test
-    public void checkLogo() {        
+    public void checkTitle () {        
         // Assertion to verify the page title
-        Assert.assertEquals(search.getTitle(), "QA Playground");
+        Assert.assertEquals(driver.getTitle(), "Automation Exercise");
     }
     @AfterTest
     public void tearDown() {
