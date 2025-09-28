@@ -49,6 +49,11 @@ public class SignUpTest {
         }        
     }
 
+    @Test (description= "Registration form")
+    public void registrationForm (){
+        
+    }
+
     @AfterTest
     public void tearDown() {
         DriverFactory.tearDown();

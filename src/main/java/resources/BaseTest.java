@@ -40,6 +40,10 @@ public class BaseTest {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(seconds));
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
+    public WebElement waitForClickable (By locator, int seconds) throws NoSuchElementException{
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(seconds));
+        return wait.until(ExpectedConditions.elementToBeClickable(locator));
+    }
     
     public void sendKeys (String text, By target) throws NoSuchElementException{
         driver.findElement(target).sendKeys(text);
