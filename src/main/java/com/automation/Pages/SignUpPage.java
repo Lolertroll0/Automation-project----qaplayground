@@ -24,9 +24,9 @@ public class SignUpPage extends BaseTest{
     }
     
     private By loginButton = By.xpath("//*[@id=\"header\"]/div/div/div/div[2]/div/ul/li[4]/a");
-    private By nameField = By.xpath ("//form[@action=\"/singup\"]//input[@name=\"name\"]");
-    private By emailField = By.xpath ("//form[@action=\"/singup\"]//input[@name=\"email\"]");  
-    private By submitButton = By.linkText("Signup");
+    private By nameField = By.xpath ("//form[@action=\"/signup\"]//input[@placeholder=\"Name\"]");
+    private By emailField = By.xpath ("//form[@action=\"/signup\"]//input[@name=\"email\"]");  
+    private By submitButton = By.xpath("//form[@action=\"/signup\"]//button[@data-qa=\"signup-button\"]");
 
     public void clicOnLoginButton () throws NoSuchElementException{      
         waitForVisibility(loginButton, 10).click();

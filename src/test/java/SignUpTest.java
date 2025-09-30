@@ -42,20 +42,19 @@ public class SignUpTest {
             Assert.assertEquals(signUp.isDocumentReady(), true);
 
             signUp.enterParameter(config.getProperty("user"), config.getProperty("email"));
-            Assert.assertEquals(driver.getCurrentUrl(), "https://www.automationexercise.com/signup");
+            Assert.assertTrue(driver.getCurrentUrl().equals("https://www.automationexercise.com/signup"));
 
         } catch (org.openqa.selenium.NoSuchElementException ex){
-            System.out.println("Element was not found");
-        }        
-    }
-
-    @Test (description= "Registration form")
-    public void registrationForm (){
-        
+            System.err.println("Element was not found " + ex);
+            throw ex;
+        } catch (AssertionError ex) {
+            System.err.println("An Assersion failed during runtime: " + ex);
+            throw ex;
+        }
     }
 
     @AfterTest
-    public void tearDown() {
+    public void tearDown() {    
         DriverFactory.tearDown();
     }
 }

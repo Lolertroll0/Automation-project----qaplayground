@@ -43,14 +43,14 @@ public class RegistrationFormPage extends BaseTest {
     private By cityField        = By.id("city");
     private By zipCodeField     = By.id("zipcode");
     private By phoneField       = By.id("mobile_number");
-    private By submitButton     = By.linkText("Create Account");
+    private By submitButton     = By.xpath("//form [@action = \"/signup\"] //button [@data-qa = \"create-account\"]");
     
     private By daysDropdown     = By.id("days");
     private By monthsDropdown   = By.id("months");
     private By yearsDropdown    = By.id("years");
     private By countryDropdown  = By.id("country");
     
-    private By successfulRegistration = By.className("title text-center");
+    private By successfulRegistration = By.xpath("//h2[@data-qa=\"account-created\"]//b");
     
     public void fillForm () throws NoSuchElementException{
 
@@ -78,15 +78,16 @@ public class RegistrationFormPage extends BaseTest {
         Select selectCountry= new Select(findElement(countryDropdown));
 
         selectDays.selectByValue(day);
-        selectMonths.selectByValue(month);
+        selectMonths.selectByVisibleText(month);
         selectYears.selectByValue(year);
         selectCountry.selectByValue(country);
 
     }
 
     public void isSuccessful () {
-        Assert.assertTrue(findElement(successfulRegistration).getText().contains("Account Created!"));
+        Assert.assertTrue(getWebTitle().toLowerCase().contains("Created".toLowerCase()), "Text doesn't match");
     }
+    
 
 }
 

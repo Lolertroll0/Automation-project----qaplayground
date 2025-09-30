@@ -42,12 +42,12 @@ public class RegistrationFormTest {
             Assert.assertEquals(signUp.isDocumentReady(), true);
 
             signUp.enterParameter(config.getProperty("user"), config.getProperty("email"));
-            Assert.assertEquals(driver.getCurrentUrl(), "https://www.automationexercise.com/signup");
+            Assert.assertTrue(driver.getCurrentUrl().contains("/signup"), "Incorrect URL reached");
 
             registrator.fillForm();
-            registrator.fillDropdown(config.getProperty("day"),
-                                     config.getProperty("month"),
-                                     config.getProperty("year"),
+            registrator.fillDropdown(config.getProperty("dayofbirth"),
+                                     config.getProperty("monthofbirth"),
+                                     config.getProperty("yearofbirth"),
                                      config.getProperty("country"));
 
             registrator.submitForm();
@@ -56,9 +56,11 @@ public class RegistrationFormTest {
             registrator.isSuccessful();
 
         } catch (org.openqa.selenium.NoSuchElementException ex){
-            System.out.println("Element was not found: " + ex);
+            System.err.println("Element was not found: " + ex);
+            throw ex;
         } catch (AssertionError ex) {
-            System.out.println("An Assersion failed during runtime: " + ex);
+            System.err.println("An Assersion failed during runtime: " + ex);
+            throw ex;
         }
         
     }

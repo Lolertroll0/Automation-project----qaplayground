@@ -48,4 +48,12 @@ public class BaseTest {
     public void sendKeys (String text, By target) throws NoSuchElementException{
         driver.findElement(target).sendKeys(text);
     }
+
+    public String getWebTitle () {
+        return driver.getTitle();
+    }
+
+    public String getCurrentURL () {
+        return driver.getCurrentUrl();
+    }
 }

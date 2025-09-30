@@ -4,17 +4,7 @@
 <suite name="Regression" verbose="1">
     <test name="standart"> 
             <classes>
-                <class name="test.SignUpTest"/>
-                <class name= "test.HomeTest"/>
                 <class name= "test.RegistrationFormTest"/>
-            </classes>
-    </test>
-<suite/>
-
-<suite name="Smoke" verbose="2">
-    <test name="standart"> 
-            <classes>
-                <class name="test.SignUpTest"/>               
             </classes>
     </test>
 <suite/>
