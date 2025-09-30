@@ -6,6 +6,7 @@
             <classes>
                 <class name="test.SignUpTest"/>
                 <class name= "test.HomeTest"/>
+                <class name= "test.RegistrationFormTest"/>
             </classes>
     </test>
 <suite/>

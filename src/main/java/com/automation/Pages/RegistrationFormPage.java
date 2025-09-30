@@ -1,12 +1,14 @@
 package com.automation.Pages;
 
-import java.time.Duration;
-
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 import resources.BaseTest;
+
 public class RegistrationFormPage extends BaseTest {
 
     private String firstName;
@@ -19,7 +21,7 @@ public class RegistrationFormPage extends BaseTest {
     private String password;
 
     /// POM Locators and Methods of home page
-    /// 
+    
     public RegistrationFormPage (WebDriver driver, String firstName, String lastname, String address, String state, String city, String zipcode, String phone, String password) {       
         super(driver);
         this.firstName = firstName;
@@ -31,7 +33,7 @@ public class RegistrationFormPage extends BaseTest {
         this.phone = phone;
         this.password = password;
     }
-
+    
     private By misterCheck      = By.xpath("//input[@id=\"id_gender1\"]");
     private By passwordField    = By.id("password");
     private By firstNameField   = By.id("first_name");
@@ -42,9 +44,18 @@ public class RegistrationFormPage extends BaseTest {
     private By zipCodeField     = By.id("zipcode");
     private By phoneField       = By.id("mobile_number");
     private By submitButton     = By.linkText("Create Account");
+    
+    private By daysDropdown     = By.id("days");
+    private By monthsDropdown   = By.id("months");
+    private By yearsDropdown    = By.id("years");
+    private By countryDropdown  = By.id("country");
+    
+    private By successfulRegistration = By.className("title text-center");
+    
+    public void fillForm () throws NoSuchElementException{
 
+        findElement(misterCheck).click();
 
-    public void fillForm (RegistrationFormPage data) {
         sendKeys(password, passwordField);
         sendKeys(firstName, firstNameField);
         sendKeys(lastname, lastNameField);
@@ -56,8 +67,27 @@ public class RegistrationFormPage extends BaseTest {
     }
 
     public void submitForm () {
-        waitForClickable(submitButton, 5);
+        waitForClickable(submitButton, 2).click();
     }
+
+    public void fillDropdown (String day, String month, String year, String country) {
+
+        Select selectDays   = new Select(findElement(daysDropdown));
+        Select selectMonths = new Select(findElement(monthsDropdown));
+        Select selectYears  = new Select(findElement(yearsDropdown));
+        Select selectCountry= new Select(findElement(countryDropdown));
+
+        selectDays.selectByValue(day);
+        selectMonths.selectByValue(month);
+        selectYears.selectByValue(year);
+        selectCountry.selectByValue(country);
+
+    }
+
+    public void isSuccessful () {
+        Assert.assertTrue(findElement(successfulRegistration).getText().contains("Account Created!"));
+    }
+
 }
 
 

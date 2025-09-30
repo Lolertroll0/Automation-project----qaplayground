@@ -1,25 +1,25 @@
-//Enums
 import static resources.enums.BrowserType.*;
 
-// Expections
-import java.util.NoSuchElementException;
-
-// Libraries
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-// Local Imports
+import com.automation.Pages.HomePage;
+import com.automation.Pages.RegistrationFormPage;
 import com.automation.Pages.SignUpPage;
-import resources.ConfigReader;
-import resources.DriverFactory;
+import resources.*;
 
-public class SignUpTest {
+import resources.*;
+
+
+public class RegistrationFormTest {
+
     private WebDriver driver;
     private ConfigReader config;
     private SignUpPage signUp;
+    private RegistrationFormPage registrator;
     
     @BeforeTest
     public void setUp() {
@@ -27,15 +27,15 @@ public class SignUpTest {
         // Actuators initialization
         config = new ConfigReader();
         driver = DriverFactory.getDriver(CHROME);
-        signUp = new SignUpPage(driver);
+        registrator = TestDataFactory.registrationData(config, driver);
+        signUp = new SignUpPage (driver);
 
         // Navigate to the URL from config
+
         driver.get(config.getProperty("homeurl"));
-        signUp.isDocumentReady();
     }    
-   
-    @Test (description="Just checking if we reach signUp form URL from Home URL")
-    public void newUserNameAndPassword () {
+    @Test 
+    public void registerNewUser () {        
         try {
             signUp.clicOnLoginButton();
             Assert.assertEquals(driver.getCurrentUrl(), "https://www.automationexercise.com/login");
@@ -44,16 +44,24 @@ public class SignUpTest {
             signUp.enterParameter(config.getProperty("user"), config.getProperty("email"));
             Assert.assertEquals(driver.getCurrentUrl(), "https://www.automationexercise.com/signup");
 
-        } catch (org.openqa.selenium.NoSuchElementException ex){
-            System.out.println("Element was not found");
-        }        
-    }
+            registrator.fillForm();
+            registrator.fillDropdown(config.getProperty("day"),
+                                     config.getProperty("month"),
+                                     config.getProperty("year"),
+                                     config.getProperty("country"));
 
-    @Test (description= "Registration form")
-    public void registrationForm (){
+            registrator.submitForm();
+
+            Assert.assertEquals(driver.getCurrentUrl(), "https://www.automationexercise.com/account_created");
+            registrator.isSuccessful();
+
+        } catch (org.openqa.selenium.NoSuchElementException ex){
+            System.out.println("Element was not found: " + ex);
+        } catch (AssertionError ex) {
+            System.out.println("An Assersion failed during runtime: " + ex);
+        }
         
     }
-
     @AfterTest
     public void tearDown() {
         DriverFactory.tearDown();

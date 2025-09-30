@@ -31,7 +31,7 @@ public class DriverFactory {
         
                 chromeOptions.addArguments("--no-sandbox");
                 chromeOptions.addArguments("--disable-dev-shm-usage");
-                //chromeOptions.addArguments("--headless=new");
+                chromeOptions.addArguments("--headless=new");
 
                 return new ChromeDriver(chromeOptions);
             }
