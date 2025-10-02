@@ -1,32 +1,23 @@
 package com.automation.Pages;
 
-import java.time.Duration;
 import java.util.NoSuchElementException;
-import java.util.concurrent.TimeoutException;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import resources.BaseTest;
 
 public class SignUpPage extends BaseTest{
 
-    private WebDriver driver;
-    private WebElement iloginButton;
-
     /// POM Locators and Methods of home page
     public SignUpPage (WebDriver driver) { 
-        super(driver);
-        this.driver = driver;
+        super(driver);      
     }
     
-    private By loginButton = By.xpath("//*[@id=\"header\"]/div/div/div/div[2]/div/ul/li[4]/a");
-    private By nameField = By.xpath ("//form[@action=\"/signup\"]//input[@placeholder=\"Name\"]");
-    private By emailField = By.xpath ("//form[@action=\"/signup\"]//input[@name=\"email\"]");  
-    private By submitButton = By.xpath("//form[@action=\"/signup\"]//button[@data-qa=\"signup-button\"]");
+    private final By loginButton =  By.xpath ("//*[@id=\"header\"]/div/div/div/div[2]/div/ul/li[4]/a");
+    private final By nameField =    By.xpath ("//form[@action=\"/signup\"]//input[@placeholder=\"Name\"]");
+    private final By emailField =   By.xpath ("//form[@action=\"/signup\"]//input[@name=\"email\"]");  
+    private final By submitButton = By.xpath ("//form[@action=\"/signup\"]//button[@data-qa=\"signup-button\"]");
 
     public void clicOnLoginButton () throws NoSuchElementException{      
         waitForVisibility(loginButton, 10).click();

@@ -1,6 +1,6 @@
 package resources;
 
-import com.automation.Pages.RegistrationFormPage;
+import com.automation.Pages.*;
 
 import org.openqa.selenium.WebDriver;
 
@@ -17,6 +17,14 @@ public class TestDataFactory {
             config.getProperty("city"),
             config.getProperty("zipcode"),
             config.getProperty("phone"),
+            config.getProperty("password")
+        );
+    }
+
+    public static LoginPage loginData (ConfigReader config, WebDriver driver) {
+        return new LoginPage(
+            driver,
+            config.getProperty("email"),
             config.getProperty("password")
         );
     }

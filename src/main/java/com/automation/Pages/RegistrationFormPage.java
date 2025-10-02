@@ -3,7 +3,7 @@ package com.automation.Pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
@@ -11,14 +11,14 @@ import resources.BaseTest;
 
 public class RegistrationFormPage extends BaseTest {
 
-    private String firstName;
-    private String lastname;
-    private String address;
-    private String state;
-    private String city;
-    private String zipcode;
-    private String phone;
-    private String password;
+    private final String firstName;
+    private final String lastname;
+    private final String address;
+    private final String state;
+    private final String city;
+    private final String zipcode;
+    private final String phone;
+    private final String password;
 
     /// POM Locators and Methods of home page
     
@@ -34,23 +34,21 @@ public class RegistrationFormPage extends BaseTest {
         this.password = password;
     }
     
-    private By misterCheck      = By.xpath("//input[@id=\"id_gender1\"]");
-    private By passwordField    = By.id("password");
-    private By firstNameField   = By.id("first_name");
-    private By lastNameField    = By.id("last_name");
-    private By addressField     = By.id("address1");
-    private By stateField       = By.id("state");
-    private By cityField        = By.id("city");
-    private By zipCodeField     = By.id("zipcode");
-    private By phoneField       = By.id("mobile_number");
-    private By submitButton     = By.xpath("//form [@action = \"/signup\"] //button [@data-qa = \"create-account\"]");
+    private final By misterCheck      = By.xpath("//input[@id=\"id_gender1\"]");
+    private final By passwordField    = By.id("password");
+    private final By firstNameField   = By.id("first_name");
+    private final By lastNameField    = By.id("last_name");
+    private final By addressField     = By.id("address1");
+    private final By stateField       = By.id("state");
+    private final By cityField        = By.id("city");
+    private final By zipCodeField     = By.id("zipcode");
+    private final By phoneField       = By.id("mobile_number");
+    private final By submitButton     = By.xpath("//form [@action = \"/signup\"] //button [@data-qa = \"create-account\"]");
     
-    private By daysDropdown     = By.id("days");
-    private By monthsDropdown   = By.id("months");
-    private By yearsDropdown    = By.id("years");
-    private By countryDropdown  = By.id("country");
-    
-    private By successfulRegistration = By.xpath("//h2[@data-qa=\"account-created\"]//b");
+    private final By daysDropdown     = By.id("days");
+    private final By monthsDropdown   = By.id("months");
+    private final By yearsDropdown    = By.id("years");
+    private final By countryDropdown  = By.id("country");
     
     public void fillForm () throws NoSuchElementException{
 

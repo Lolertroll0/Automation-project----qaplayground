@@ -8,6 +8,7 @@ public class ConfigReader {
 
     private Properties properties;
 
+    @SuppressWarnings({"CallToPrintStackTrace", "ConvertToTryWithResources"})
     public ConfigReader() {
         properties = new Properties();
         try {

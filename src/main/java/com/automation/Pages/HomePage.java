@@ -12,9 +12,19 @@ public class HomePage extends BaseTest{
         super(driver);
     }
 
-    private By webTitle = By.xpath("/html/body/nav/div[1]");
+    private final By webTitle = By.xpath("/html/body/nav/div[1]");
+    private final By loginButton = By.xpath("/html/body/header/div/div/div/div[2]/div/ul/li[4]/a");
+    private final By userDisplayed = By.xpath("/html/body/header/div/div/div/div[2]/div/ul/li[10]/a/b");
 
-    public String getTitle () {
+    public String getHomeTitle () {
         return findElement(webTitle).getText();
+    }
+
+    public void goToLoginPage () {
+        waitForClickable(loginButton, 3).click();
+    }
+
+    public String getDisplayedUser () {
+        return findElement(userDisplayed).getText();
     }
 }

@@ -12,7 +12,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BaseTest {
-    private WebDriver driver;
+
+    private final WebDriver driver;
 
     public BaseTest(WebDriver driver) {
         this.driver = driver;
@@ -45,14 +46,17 @@ public class BaseTest {
         return wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
     
+    /// Enters given Text on a Given input on DOM - Throws NoSuchElementException 
     public void sendKeys (String text, By target) throws NoSuchElementException{
         driver.findElement(target).sendKeys(text);
     }
 
+    /// Returns String currently URL for driver
     public String getWebTitle () {
         return driver.getTitle();
     }
 
+    /// Returns String currently URL for driver
     public String getCurrentURL () {
         return driver.getCurrentUrl();
     }
