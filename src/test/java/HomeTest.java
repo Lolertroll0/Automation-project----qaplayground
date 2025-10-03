@@ -8,16 +8,20 @@ import org.testng.annotations.Test;
 
 import com.automation.Pages.HomePage;
 
+import resources.BaseTest;
 import resources.ConfigReader;
 import resources.DriverFactory;
 
-public class HomeTest {
+public class HomeTest extends BaseTest{
+    
     private WebDriver driver;
     private ConfigReader config;
     private HomePage homePage;
-    
-    
 
+    public HomeTest(WebDriver driver) {
+        super(driver);
+    }
+    
     @BeforeTest
     public void setUp() {
 
@@ -32,7 +36,7 @@ public class HomeTest {
     @Test
     public void checkTitle () {        
         // Assertion to verify the page title
-        Assert.assertEquals(driver.getTitle(), "Automation Exercise");
+        Assert.assertEquals(homePage.getHomePageUrl(), "Automation Exercise");
     }
     @AfterTest
     public void tearDown() {

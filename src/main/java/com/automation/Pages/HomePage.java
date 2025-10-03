@@ -19,6 +19,10 @@ public class HomePage extends BaseTest{
     public String getHomeTitle () {
         return findElement(webTitle).getText();
     }
+    
+    public String getHomePageUrl(){
+        return getWebTitle();
+    }
 
     public void goToLoginPage () {
         waitForClickable(loginButton, 3).click();

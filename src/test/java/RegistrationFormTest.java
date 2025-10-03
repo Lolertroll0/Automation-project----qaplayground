@@ -6,21 +6,24 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import com.automation.Pages.HomePage;
 import com.automation.Pages.RegistrationFormPage;
 import com.automation.Pages.SignUpPage;
 import resources.*;
 
-import resources.*;
 
 
-public class RegistrationFormTest {
+public class RegistrationFormTest extends BaseTest{
 
+    
     private WebDriver driver;
     private ConfigReader config;
     private SignUpPage signUp;
     private RegistrationFormPage registrator;
     
+    public RegistrationFormTest(WebDriver driver) {
+        super(driver);
+    }
+
     @BeforeTest
     public void setUp() {
 

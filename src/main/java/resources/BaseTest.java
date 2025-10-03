@@ -13,12 +13,15 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BaseTest {
 
-    private final WebDriver driver;
+    protected final WebDriver driver;
 
     public BaseTest(WebDriver driver) {
         this.driver = driver;
     }
-
+    
+    public WebDriver getDriver() {
+        return driver;
+    }
     
     public WebElement findElement (By locator) {
         return driver.findElement(locator);

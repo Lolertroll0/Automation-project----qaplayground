@@ -1,9 +1,6 @@
 //Enums
 import static resources.enums.BrowserType.*;
 
-// Expections
-import java.util.NoSuchElementException;
-
 // Libraries
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -13,14 +10,22 @@ import org.testng.annotations.Test;
 
 // Local Imports
 import com.automation.Pages.SignUpPage;
+
+import resources.BaseTest;
 import resources.ConfigReader;
 import resources.DriverFactory;
 
-public class SignUpTest {
+public class SignUpTest extends BaseTest{
+    
+
     private WebDriver driver;
     private ConfigReader config;
     private SignUpPage signUp;
-    
+
+    public SignUpTest(WebDriver driver) {
+        super(driver);
+    }
+
     @BeforeTest
     public void setUp() {
 

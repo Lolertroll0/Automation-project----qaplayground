@@ -12,12 +12,16 @@ import com.automation.Pages.HomePage;
 import resources.*;
 
 
-public class LoginTest {
+public class LoginTest extends BaseTest {
 
     private WebDriver driver;
     private ConfigReader config;
     private LoginPage login;
     private HomePage home;
+
+    public LoginTest(WebDriver driver) {
+        super(driver);
+    }
 
     @BeforeTest
     public void setUp() {
