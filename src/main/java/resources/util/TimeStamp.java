@@ -1,4 +1,4 @@
-package resources;
+package resources.util;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

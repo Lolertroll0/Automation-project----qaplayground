@@ -1,4 +1,4 @@
-package resources;
+package resources.util;
 
 import java.io.File;
 import java.io.IOException;

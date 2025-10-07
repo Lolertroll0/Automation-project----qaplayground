@@ -11,20 +11,14 @@ import org.testng.annotations.Test;
 // Local Imports
 import com.automation.Pages.SignUpPage;
 
-import resources.BaseTest;
 import resources.ConfigReader;
 import resources.DriverFactory;
 
-public class SignUpTest extends BaseTest{
+public class SignUpTest {
     
-
     private WebDriver driver;
     private ConfigReader config;
     private SignUpPage signUp;
-
-    public SignUpTest(WebDriver driver) {
-        super(driver);
-    }
 
     @BeforeTest
     public void setUp() {

@@ -4,8 +4,11 @@ import org.openqa.selenium.WebDriver;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
+import resources.util.ScreenshotHandler;
+
 public class TestListeners implements ITestListener {
     private WebDriver driver;
+    
     @Override
     public void onTestFailure (ITestResult result) {
         

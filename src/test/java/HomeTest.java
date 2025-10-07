@@ -8,19 +8,14 @@ import org.testng.annotations.Test;
 
 import com.automation.Pages.HomePage;
 
-import resources.BaseTest;
 import resources.ConfigReader;
 import resources.DriverFactory;
 
-public class HomeTest extends BaseTest{
+public class HomeTest {
     
     private WebDriver driver;
     private ConfigReader config;
     private HomePage homePage;
-
-    public HomeTest(WebDriver driver) {
-        super(driver);
-    }
     
     @BeforeTest
     public void setUp() {

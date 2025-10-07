@@ -3,11 +3,11 @@
 
 <suite name="Regression" verbose="1">
     <listeners>
-        <listener class-name="TestListeners"/>
+        <listener class-name="resources.TestListeners"/>
     </listeners>
     <test name="standart"> 
-            <classes>
-                <class name= "test.RegistrationFormTest"/>
-            </classes>
+        <classes>
+            <class name= "LoginTest"/>
+        </classes>
     </test>
-<suite/>
+</suite>

@@ -12,7 +12,7 @@ import resources.*;
 
 
 
-public class RegistrationFormTest extends BaseTest{
+public class RegistrationFormTest {
 
     
     private WebDriver driver;
@@ -20,9 +20,6 @@ public class RegistrationFormTest extends BaseTest{
     private SignUpPage signUp;
     private RegistrationFormPage registrator;
     
-    public RegistrationFormTest(WebDriver driver) {
-        super(driver);
-    }
 
     @BeforeTest
     public void setUp() {

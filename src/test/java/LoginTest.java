@@ -12,16 +12,12 @@ import com.automation.Pages.HomePage;
 import resources.*;
 
 
-public class LoginTest extends BaseTest {
+public class LoginTest {
 
     private WebDriver driver;
     private ConfigReader config;
     private LoginPage login;
     private HomePage home;
-
-    public LoginTest(WebDriver driver) {
-        super(driver);
-    }
 
     @BeforeTest
     public void setUp() {
@@ -53,5 +49,15 @@ public class LoginTest extends BaseTest {
             System.err.println("An Assersion Failed during Runtime " + ex);
             throw ex;
         } 
+    }
+
+    @Test (enabled=false)
+    public void failedLogin () {
+        
+    }
+
+    @AfterTest
+    public void tearDown () {
+        DriverFactory.tearDown();
     }
 }
